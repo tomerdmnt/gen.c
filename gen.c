@@ -22,6 +22,7 @@ gen_t *gen_create(gen_func_t func, void *in) {
 }
 
 void gen_free(gen_t *gen) {
+	free((char *)gen->sp - GEN_STACK_SIZE);
 	free(gen);
 }
 

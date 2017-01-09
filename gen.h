@@ -1,8 +1,8 @@
 #ifndef GEN_H
 #define GEN_H
 
-#define yield gen_yield;
-#define resume gen_resume;
+#define yield gen_yield
+#define resume gen_resume
 
 #define GEN_STACK_SIZE 1024
 
