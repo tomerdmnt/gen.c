@@ -7,10 +7,7 @@ void generator(gen_t *gen, void *omitch) {
 
 	while ((c = getchar()) != EOF) {
 		if (c != *((char *)omitch)) {
-			printf("getting char %c\n", c);
-			int *c_p = malloc(sizeof(char));
-			*c_p = c;
-			gen_yield(gen, c_p);
+			gen_yield(gen, &c);
 		}
 	}
 }
@@ -23,10 +20,8 @@ int main(void) {
 	gen = gen_create(generator, &omitch);
 	omitch = 'z';
 
-	while ((ch_p = gen_resume(gen)) != NULL) {
-		printf("putting char %c\n", *ch_p);
+	while ((ch_p = gen_resume(gen)) != NULL)
 		putchar(*ch_p);
-	}
 	
 	gen_free(gen);
 
