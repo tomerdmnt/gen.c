@@ -7,7 +7,7 @@ void generator(gen_t *gen, void *omitch) {
 
 	while ((c = getchar()) != EOF) {
 		if (c != *((char *)omitch)) {
-			gen_yield(gen, &c);
+			yield(gen, &c);
 		}
 	}
 }
@@ -20,7 +20,7 @@ int main(void) {
 	gen = gen_create(generator, &omitch);
 	omitch = 'z';
 
-	while ((ch_p = gen_resume(gen)) != NULL)
+	while ((ch_p = resume(gen)) != NULL)
 		putchar(*ch_p);
 	
 	gen_free(gen);
