@@ -1,5 +1,5 @@
 
-c generators usign jmpbuf
+c generator using jmpbuf
 
 # Overview
 
